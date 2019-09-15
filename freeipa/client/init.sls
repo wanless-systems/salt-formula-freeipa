@@ -115,6 +115,7 @@ freeipa_client_install:
         {%- if client.get('mkhomedir', True) %} --mkhomedir{%- endif %}
         {%- if client.dns.updates %} --enable-dns-updates{%- endif %}
         --unattended
+        --force-ntpd
     - creates: /etc/ipa/default.conf
     - require:
       - pkg: freeipa_client_pkgs
