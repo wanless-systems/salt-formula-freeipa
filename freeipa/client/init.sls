@@ -94,9 +94,10 @@ freeipa_kdestroy:
 
 freeipa_client_pkgs:
   pkg.installed:
-    {%- for p in client.pkgs %}
-    - {{ p|string }}
-    {%- endfor %}
+    - pkgs:
+      {%- for p in client.pkgs %}
+      - {{ p|string }}
+      {%- endfor %}
 
 freeipa_client_install:
   cmd.run:
